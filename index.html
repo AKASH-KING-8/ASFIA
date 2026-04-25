@@ -25,15 +25,16 @@
         }
         .footer {
             position: fixed;
-            bottom: 10px;
+            bottom: 15px;
             width: 100%;
             text-align: center;
             color: #ffffff;
             font-family: 'Courier New', Courier, monospace;
             font-size: 14px;
-            letter-spacing: 1px;
+            font-weight: bold;
             z-index: 100;
-            opacity: 0.7;
+            opacity: 0.8;
+            text-shadow: 1px 1px 5px #000;
         }
         @keyframes fall {
             0% { transform: translateY(-100px); }
@@ -49,8 +50,11 @@
         function createRain() {
             const textElement = document.createElement('div');
             textElement.classList.add('rain-text');
-            textElement.innerText = "I Love You Asfia ❤️";
             
+            // The falling message
+            textElement.innerText = "I love You Asfia ❤️";
+            
+            // Random styling for variety
             const fontSize = Math.random() * (22 - 14) + 14; 
             const leftPos = Math.random() * 100;
             const duration = Math.random() * (4 - 2) + 2; 
@@ -63,13 +67,14 @@
 
             document.body.appendChild(textElement);
 
+            // Clean up elements after animation
             setTimeout(() => {
                 textElement.remove();
             }, duration * 1000);
         }
 
+        // Speed of the rain (Lower = More dense)
         setInterval(createRain, 150);
     </script>
 </body>
 </html>
-
